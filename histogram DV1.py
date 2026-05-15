@@ -3,20 +3,34 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-dataset=pd.read_csv('data9.csv')
+dataset=pd.read_csv('data8.csv')
 dataset
 
-sns.boxplot(x='Sex', y='Age', data=dataset)
+sns.histplot(dataset['Fare'])
+
+sns.histplot(data=dataset,x='Fare',y='Survived')
+  
+#Optional 
+sns.distplot(dataset['Fare'])
+
+sns.distplot(dataset['Fare'], kde=False)
+
+sns.distplot(dataset['Fare'], kde=False, bins=10)
+
+sns.jointplot(x='Age', y='Fare', data=dataset)
+
+sns.pairplot(dataset)
+
+sns.rugplot(dataset['Fare'])
+
+sns.barplot(x='Sex', y='Age', data=dataset)
+
+sns.countplot(x='Fare', data=dataset)
+
+sns.boxplot(x='Survived', y='Fare', data=dataset)
 
 sns.boxplot(x='Sex', y='Age', data=dataset, hue="Survived")
 
-#Optional 
-sns.boxplot(x="Age", y="Fare", hue="Survived",data=dataset,linewidth=3)
+sns.violinplot(x='Sex', y='Age', data=dataset, hue='Survived')
 
-sns.boxplot(x='Sex', y='Age', data=dataset, notch=1)
-
-sns.boxplot(x='Sex', y='Age', data=dataset, notch=1, bootstrap=5)
-
-sns.boxplot(data=dataset, orient="v")
-
-sns.boxplot(data=dataset, orient="h")
+sns.stripplot(x='Sex', y='Age', data=dataset)
