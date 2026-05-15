@@ -15,7 +15,7 @@ series1
 
 missing_values = ["Na", "na", "Na", "nA"]
 df = pd.read_csv("data2.csv", na_values = missing_values)
-ndf=df ndf.fillna(0)
+ndf=df.fillna(0)
 
 df['math score'] = df['math score'].fillna(df['math score'].mean())
 df['math score'] 
